@@ -45,6 +45,26 @@ mixin header(menuItems, avatarSrc)
 						.menu-toggle
 							span
 
+mixin close
+	span
+		<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M8.707 8.5L12 5.207L11.293 4.5L8 7.793L4.707 4.5L4 5.207L7.293 8.5L4 11.793L4.707 12.5L8 9.207L11.293 12.5L12 11.793L8.707 8.5Z" fill="#333333"/>
+		<mask id="maskС" mask-type="alpha" maskUnits="userSpaceOnUse" x="4" y="4" width="8" height="9">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M8.707 8.5L12 5.207L11.293 4.5L8 7.793L4.707 4.5L4 5.207L7.293 8.5L4 11.793L4.707 12.5L8 9.207L11.293 12.5L12 11.793L8.707 8.5Z" fill="white"/>
+		</mask>
+		<g mask="url(#maskС)">
+		</g>
+		</svg>
+mixin table
+	span
+		<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M3.125 3.125H5.625V5.625H3.125V3.125ZM8.75 3.125H11.25V5.625H8.75V3.125ZM16.875 3.125H14.375V5.625H16.875V3.125ZM8.75 8.75H11.25V11.25H8.75V8.75ZM5.625 8.75H3.125V11.25H5.625V8.75ZM14.375 8.75H16.875V11.25H14.375V8.75ZM11.25 14.375H8.75V16.875H11.25V14.375ZM3.125 14.375H5.625V16.875H3.125V14.375ZM16.875 14.375H14.375V16.875H16.875V14.375Z" fill="#313131"/>
+			<mask id="maskt" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="14" height="14">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M3.125 3.125H5.625V5.625H3.125V3.125ZM8.75 3.125H11.25V5.625H8.75V3.125ZM16.875 3.125H14.375V5.625H16.875V3.125ZM8.75 8.75H11.25V11.25H8.75V8.75ZM5.625 8.75H3.125V11.25H5.625V8.75ZM14.375 8.75H16.875V11.25H14.375V8.75ZM11.25 14.375H8.75V16.875H11.25V14.375ZM3.125 14.375H5.625V16.875H3.125V14.375ZM16.875 14.375H14.375V16.875H16.875V14.375Z" fill="white"/>
+			</mask>
+			<g mask="url(#maskt)">
+			</g>
+		</svg>
 mixin radioBlock( itemId,text1,text2, radioName,  text3, check)
 	.form-group&attributes(attributes)
 		if check
@@ -136,30 +156,31 @@ mixin main-product-card(title, imgSrc, weight, desk, price, oldPrice)
 			input(type="hidden" name="product_name"  value=""+ title)
 			input(type="hidden" name="product_weight" value="500 гр")
 			a(href="product-card.html" title=""+ title).product-card__img
-				img.lazy(data-src="img/main/"+ imgSrc +".png", alt="product" width="280")
-			.product-card__title
-				a(href="product-card.html" title=""+ title).product-title #{title}
-				span.card-text #{weight} гр
-			.product-card__deskrip
-				p #{desk}
-				
-			.product-card-footer
-				.product-card__calc
-					.product-card__prises
-						span.new-price
-							span.value #{price}
-							span.dim &#8381;
-						if oldPrice
-							span.old-price
-								span.value 800
+				img(src="img/main/"+ imgSrc +".png", alt="product" width="280")
+			.product-card__body
+				.product-card__title
+					a(href="product-card.html" title=""+ title).product-title #{title}
+					span.card-text #{weight} гр
+				.product-card__deskrip
+					p #{desk}
+					
+				.product-card-footer
+					.product-card__calc
+						.product-card__prises
+							span.new-price
+								span.value #{price}
 								span.dim &#8381;
-					+counter
+							if oldPrice
+								span.old-price
+									span.value 800
+									span.dim &#8381;
+						+counter
 				
-				.product-card__buttons
-					.favorite-icon
-						i.far.fa-heart
-					.form-btn
-						button.page-button--color.page-button Купить
+			.product-card__buttons
+				.favorite-icon
+					i.far.fa-heart
+				.form-btn
+					button.page-button--color.page-button Купить
 						//- input(type="submit" value="Купить").page-button--color.page-button
 
 //оформление заказа таблицы строка

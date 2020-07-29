@@ -123,31 +123,10 @@ $(document).ready(function () {
 
 				}
 			});
-			// card.addEventListener('click', function (e) {
-			//     e.stopPropagation;
-			//     if (e.target == cardBtnHideBack) {
-			//         cardBackSide.classList.remove('active')
-			//         cardBtnHideBack.classList.remove('active')
-			//     }
 
-			// });
 		}
 
 	}
-
-	/* MIXITUP3*/
-	let containerEl = document.querySelector('.menu-products__content');
-	if (containerEl) {
-		let mixer = mixitup(containerEl, {
-			classNames: {
-				block: ""
-			},
-			load: {
-				filter: '.cat1'
-			}
-		})
-	}
-
 
 	// маска для телефона
 	$(".phone").mask("+7(999)999-99-99");
@@ -445,14 +424,6 @@ $(document).ready(function () {
 			if (articleImgWrapper.style.height == 210 + 'px') {
 				articleImgWrapper.style.marginBottom = 30 + 'px';
 			}
-			// let textLength = 0;
-			// for (let item of articleBlockText) {
-			//     const itemLength = +item.textContent.length;
-			//     textLength = textLength + itemLength;
-			// }
-			// if (textLength > 800) {
-			//     articleImgWrapper.style.height = 410 + 'px';
-			// };
 
 		}
 
@@ -494,4 +465,101 @@ $(document).ready(function () {
 			});
 		});
 	}(document, window, 0));
+
+	// ДИАПАЗОН ВЫБОРА ЦЕНЫ 
+	$(function () {
+		$("#slider-range").slider({
+			range: true,
+			min: 0,
+			max: 10000,
+			values: [2000, 8000],
+			slide: function (event, ui) {
+				$("#amount").val(ui.values[0]);
+				$("#amount_1").val(ui.values[1]);
+			}
+		});
+		$("#amount").val($("#slider-range").slider("values", 0));
+		$("#amount_1").val($("#slider-range").slider("values", 1));
+
+		//-изменение местоположения ползунка при вводе данных в 1 инпут
+		$('input#amount').change(function () {
+			var value1 = $('input#amount').val();
+			var value2 = $('input#amount_1').val();
+
+			if (parseInt(value1) > parseInt(value2)) {
+				value1 = value2;
+				$('input#amount').val(value1);
+			}
+			$('#slider-range').slider("values", 0, value1);
+		});
+
+		//-при вводе данных в 2 инпут
+		$('input#amount_1').change(function () {
+			var value1 = $('input#amount').val();
+			var value2 = $('input#amount_1').val();
+
+			if (parseInt(value1) > parseInt(value2)) {
+				value2 = value2;
+				$('input#amount_1').val(value2);
+			}
+			$('#slider-range').slider("values", 1, value2);
+		});
+
+		//-фильтрация ввода в инпут
+		jQuery('#amount, #amount_1').keypress(function (event) {
+			var key, keyChar;
+			if (!event) var event = window.event;
+
+			if (event.keyCode) key = event.keyCode;
+			else if (event.which) key = event.which;
+
+			if (key == null || key == 0 || key == 8 || key == 13 || key == 9 || key == 46 || key == 37 || key == 39) return true;
+			keyChar = String.fromCharCode(key);
+
+			if (!/\d/.test(keyChar)) return false;
+		});
+
+	});
+
+	// CUSTOM SELECT
+	const selectElement = document.querySelector('.form-select');
+	const selectInput = selectElement.querySelector('input');
+	const selectOptions = selectElement.querySelector('.form-select__options');
+	const selectArrow = selectElement.querySelector('.form-select__icon');
+
+	selectArrow.addEventListener('click', function () {
+
+		if (selectOptions.classList.contains('active')) {
+			this.classList.remove('rotate');
+			selectOptions.classList.remove('active');
+		} else {
+			this.classList.add('rotate');
+			selectOptions.classList.add('active');
+		}
+
+	});
+
+	//клик по выпадающему списку селекта
+	selectOptions.addEventListener('click', function (e) {
+		if (e.target.tagName == 'LI') {
+			selectInput.value = e.target.textContent;
+			this.classList.remove('active');
+			selectArrow.classList.remove('rotate');
+			// console.log(e.target.textContent)
+		}
+
+	});
+
+	// Показать подменю каталога на сайдбаре  стр Каталог 
+	const dropLi = document.querySelectorAll('li.drop-list');
+
+	for (let item of dropLi) {
+		item.addEventListener('click', function () {
+
+			const itemDrop = item.querySelector('.menu-drop');
+
+			itemDrop.classList.toggle('active');
+			this.classList.toggle('active');
+		})
+	}
 })
