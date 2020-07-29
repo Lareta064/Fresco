@@ -1,0 +1,42 @@
+.category-menu {
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+	@media(max-width:1199px) {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	@media(max-width:767px) {
+		display: none;
+	}
+
+	nav {
+		display: flex;
+		justify-content: space-between;
+
+		@media(max-width:1199px) {
+			flex-wrap: wrap;
+		}
+
+
+	}
+
+	a {
+		color: @dark;
+		font-size: 16px;
+		line-height: 24px;
+		font-weight: 700;
+		margin-bottom: 5px;
+
+		@media(max-width:1199px) {
+			flex-wrap: wrap;
+			margin-right: 40px;
+		}
+
+		&.active,
+		&:hover {
+			color: @red;
+		}
+	}
+}

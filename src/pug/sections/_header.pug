@@ -1,0 +1,46 @@
+header.header
+	.container
+		.header-content
+			.header-column
+				a(href="index.html").logo
+					img(src="img/main/logo.png", alt="logo")
+				.header-nav
+					.header-nav__row
+						.working-hours.text-2.d-none.d-xl-flex
+							.working-hours__title прием заказов:
+							.working-hours__info СР,ЧТ, ВС  с 15:00 - 00:00;   ПТ, СБ с 15:00 - 02:00;   ПН, ВТ - выходные дни
+						+social-icons
+					ul.header-menu
+						.menu-logo
+							img(src="img/main/logo.png", alt="logo")
+						li.active
+							a(href="index.html") Главная
+						li
+							a(href="index.html#main-menu") Меню
+						li
+							a(href="delivery-page.html") Доставка и оплата
+						li
+							a(href="page-sales.html") Новости и акции
+						li
+							a(href="aboutus.html") О нас
+						li
+							a(href="contacts.html") Контакты
+						.menu-social
+							+social-icons
+			.fix-wrapper
+				.header-column.header-column--left
+					.contact-phone
+						a(href="tel:+79055555555") +7 (905) 555-55-55
+					.user-controls
+						.user-log-in
+							a(href="user-profile.html")
+								+log-in
+						.user-basket
+							a(href="page-basket.html")
+								+cart-icon
+								span.basket-value 2
+					.menu-toggle
+						span
+
+
+
