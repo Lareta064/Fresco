@@ -97,37 +97,6 @@ $(document).ready(function () {
 	});
 
 
-	/*показать/скрыть обратную сторону карточки товара на главной*/
-	const mainProductCard = document.querySelectorAll('.product-card');
-	if (mainProductCard) {
-		for (let card of mainProductCard) {
-			const cardBackSide = card.querySelector('.product-card__addition');
-			const cardBtnShowBack = card.querySelector('.show-back');
-			// const cardBtnHideBack = card.querySelector('.show-back.active');
-
-			card.addEventListener('click', function (e) {
-				// e.stopPropagation;
-				// e.preventDefault;
-				console.log(e.target);
-				if (e.target == cardBtnShowBack) {
-					console.log(e.target);
-					if (e.target.classList.contains('active')) {
-						cardBackSide.classList.remove('active')
-						e.target.classList.remove('active')
-						console.log('555');
-					} else {
-						cardBackSide.classList.add('active')
-						e.target.classList.add('active')
-						console.log('222');
-					}
-
-				}
-			});
-
-		}
-
-	}
-
 	// маска для телефона
 	$(".phone").mask("+7(999)999-99-99");
 	$.fn.setCursorPosition = function (pos) {
@@ -150,32 +119,6 @@ $(document).ready(function () {
 	const requiredInputs = document.querySelectorAll('.form-group  input[type="text"]');
 	const textareaElement = document.querySelector('.form-group textarea');
 
-	if (mainProductCard.length > 0) {
-
-		if (checkboxGroup.length > 0) {
-
-			//активировать чекбокс на карточке товара главной страницы по клику на фейковый
-
-			for (let checkbox of checkboxGroup) {
-				const thisParent = checkbox.closest('li');
-				if (thisParent) {
-					const thisInputCheckbox = thisParent.querySelector('input');
-					checkbox.addEventListener('click', function () {
-						thisInputCheckbox.checked != thisInputCheckbox.checked;
-						if (thisInputCheckbox.checked) {
-
-							thisParent.classList.add('check-item');
-						} else {
-							thisParent.classList.remove('check-item');
-						}
-					})
-				}
-
-			}
-		}
-
-
-	}
 
 	/*---ПОКАЗАТЬ ВОСКЛИЦАТЕЛЬНЫЙ ЗНАК В ИНПУТЕ */
 	for (let item of requiredInputs) {
@@ -523,33 +466,36 @@ $(document).ready(function () {
 
 	// CUSTOM SELECT
 	const selectElement = document.querySelector('.form-select');
-	const selectInput = selectElement.querySelector('input');
-	const selectOptions = selectElement.querySelector('.form-select__options');
-	const selectArrow = selectElement.querySelector('.form-select__icon');
+	if (selectElement) {
+		const selectInput = selectElement.querySelector('input');
+		const selectOptions = selectElement.querySelector('.form-select__options');
+		const selectArrow = selectElement.querySelector('.form-select__icon');
 
-	selectArrow.addEventListener('click', function () {
 
-		if (selectOptions.classList.contains('active')) {
-			this.classList.remove('rotate');
-			selectOptions.classList.remove('active');
-		} else {
-			this.classList.add('rotate');
-			selectOptions.classList.add('active');
-		}
 
-	});
+		selectArrow.addEventListener('click', function () {
 
-	//клик по выпадающему списку селекта
-	selectOptions.addEventListener('click', function (e) {
-		if (e.target.tagName == 'LI') {
-			selectInput.value = e.target.textContent;
-			this.classList.remove('active');
-			selectArrow.classList.remove('rotate');
-			// console.log(e.target.textContent)
-		}
+			if (selectOptions.classList.contains('active')) {
+				this.classList.remove('rotate');
+				selectOptions.classList.remove('active');
+			} else {
+				this.classList.add('rotate');
+				selectOptions.classList.add('active');
+			}
 
-	});
+		});
 
+		//клик по выпадающему списку селекта
+		selectOptions.addEventListener('click', function (e) {
+			if (e.target.tagName == 'LI') {
+				selectInput.value = e.target.textContent;
+				this.classList.remove('active');
+				selectArrow.classList.remove('rotate');
+				// console.log(e.target.textContent)
+			}
+
+		});
+	}
 	// Показать подменю каталога на сайдбаре  стр Каталог 
 	const dropLi = document.querySelectorAll('li.drop-list');
 
@@ -562,4 +508,47 @@ $(document).ready(function () {
 			this.classList.toggle('active');
 		})
 	}
+
+	// ПЕРЕКЛЮЧЕНИЕ ОТОБРАЖЕНИЯ КАРТОЧЕК
+	const viewListBtn = document.querySelector('.view-list');
+	const viewTableBtn = document.querySelector('.view-table');
+	const cardColumn = document.querySelectorAll('.content-cards .col-xl-4');
+	if (viewListBtn) {
+		viewListBtn.addEventListener('click', function () {
+			viewTableBtn.classList.remove('active');
+			this.classList.add('active')
+			for (let item of cardColumn) {
+				item.classList.add('card-horizontal')
+			}
+		});
+
+		viewTableBtn.addEventListener('click', function () {
+			viewListBtn.classList.remove('active');
+			this.classList.add('active')
+			for (let item of cardColumn) {
+				item.classList.remove('card-horizontal')
+			}
+		});
+		// Клик по количеству отображения карточек
+		const countBtn = document.querySelectorAll('.count-buttons button');
+		for (item of countBtn) {
+			item.addEventListener('click', function () {
+				for (item of countBtn) {
+					item.classList.remove('active')
+				}
+				this.classList.add('active');
+			})
+		}
+	}
+	// клик по иконке сердечко
+	const iconFavor = document.querySelectorAll('.favorite-icon');
+	if (iconFavor) {
+		for (let item of iconFavor) {
+			item.addEventListener('click', function () {
+				console.log('555');
+				this.querySelector('i').classList.toggle('fas')
+			})
+		}
+	}
+
 })
