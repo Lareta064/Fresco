@@ -10,9 +10,7 @@ section.catalog
 		h1.page-title Мясо, рыба, птица
 		.catalog-block
 			.row
-				.col-xl-3
-					include _filter-panel.pug
-				.col-xl-9
+				.col-lg-9.order-lg-2
 					.catalog-content
 						.content-filters
 							.filter-display
@@ -70,3 +68,6 @@ section.catalog
 									+main-product-card(' Глазной мускул (говядина) ', 'catalog-products/8', 650, 'Фермерское мясо', 1000)
 								.col-md-6.col-xl-4
 									+main-product-card('Вырезка (говядина)  ', 'catalog-products/9', 650, 'Фермерское мясо', 1000)
+				.col-lg-3.order-lg-1
+					include _filter-panel.pug
+				
