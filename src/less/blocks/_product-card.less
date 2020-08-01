@@ -37,6 +37,10 @@
 	}
 }
 
+.card-text {
+	white-space: nowrap;
+}
+
 .product-card__img {
 
 	height: 200px;
@@ -66,6 +70,7 @@
 	font-size: 1.6em;
 	font-family: @mainfont;
 	color: @mainText;
+	font-weight: 700;
 	width: 86%;
 	white-space: nowrap;
 	overflow: hidden;
@@ -208,14 +213,16 @@ span.dim {
 	border-width: 1px;
 	border-color: rgb(191, 191, 191);
 	border-style: solid;
-	border-radius: 5px;
-	background-color: rgb(238, 238, 238);
-	height: 23px;
-	width: 33px;
+
 	text-align: center;
 	line-height: 21px;
 	color: @black;
 	font-weight: 700;
+	border-radius: 50%;
+	border-color: transparent;
+	background: #F5F5F5;
+	height: 24px;
+	width: 24px;
 }
 
 .product-counter span:last-child {
@@ -380,7 +387,11 @@ svg.left-arr {
 	border-radius: 15px;
 	color: #fff;
 	font-size: 13px;
-	margin-right: 10px;
+
+	&+.card-badge {
+		margin-left: 10px;
+	}
+
 }
 
 .card-badge--new {

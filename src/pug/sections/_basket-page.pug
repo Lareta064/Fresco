@@ -6,12 +6,10 @@ section.basket
 			h2 В корзине нет товаров
 		.basket-content
 			.basket-table#basket-table
-				+basketItem('bavariya')
-				+basketItem('carbonara')
-				+basketItem
-				+basketItem('neapol')
-				+basketItem('pepperoni')
-				+basketItem('ranchous')
+				+basketItem('product1', 'Шелковица', 'Армения')
+				+basketItem('product2','Крыжовник', 'Россия')
+				+basketItem('product3','Бананы', 'отборные','500')
+				+basketItem('product4','Вешенки')
 			.basket-result
 				.row
 					.col-md-6.col-lg-4.offset-lg-2.col-xl-4.offset-xl-3.order-md-2
@@ -24,7 +22,7 @@ section.basket
 					.col-md-6.col-xl-5.order-md-1
 						.basket-btn
 							a(href="checkout-order.html").page-button.page-button--red Перейти к оформлению
-							button.basket-clean.page-btn3
+							button.basket-clean.page-btn2
 								span Очистить корзину
 								span
 									svg(width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg")

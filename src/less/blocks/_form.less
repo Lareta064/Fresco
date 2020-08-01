@@ -136,10 +136,6 @@ input:-webkit-autofill {
 	-webkit-appearance: none;
 }
 
-.form-checkbox:focus+.custom-checkbox {
-	// border: 1px solid #eee;
-}
-
 .custom-checkbox {
 	display: inline-block;
 	width: 15px;
@@ -303,7 +299,7 @@ form .agree-text {
 	top: 0;
 	width: 16px;
 	height: 16px;
-	border: 1px solid #1f1f1f;
+	border: 1px solid @green;
 	border-radius: 100%;
 	background: #fff;
 }
@@ -320,7 +316,7 @@ form .agree-text {
 	content: '';
 	width: 8px;
 	height: 8px;
-	background: #1f1f1f;
+	background: @green;
 
 	position: absolute;
 	top: 4px;
@@ -508,6 +504,69 @@ form.personal-data {
 		top: 2px;
 	}
 
+}
+
+.search-panel {
+	@media(max-width:767px) {
+
+		width: 100%;
+	}
+
+	.input-wraper {
+		position: relative;
+		width: 370px;
+
+		@media(max-width:991px) {
+			width: 300px;
+		}
+
+		@media(max-width:767px) {
+			min-width: 280px;
+			width: 100%;
+		}
+
+	}
+
+	.search-button {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 2;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background-color: #58B031;
+		display: inline-block;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		line-height: 1;
+		padding: 0;
+
+		&:hover {
+			background-color: @red;
+		}
+
+	}
+
+	input {
+		width: 100%;
+		height: 32px;
+		border: 1px solid #58B031;
+		display: block;
+		font-size: 12px;
+		line-height: 19px;
+		color: #A3A7B4;
+		border-radius: 100px;
+		padding-left: 12px;
+		padding-right: 40px;
+
+		&::placeholder {
+			font-size: 12px;
+			line-height: 19px;
+			color: #A3A7B4;
+		}
+	}
 }
 
 /*--FORM STYLE*/
