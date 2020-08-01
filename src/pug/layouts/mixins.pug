@@ -1,12 +1,12 @@
 mixin header(menuItems, avatarSrc)
 	header.header
-		.container
-			.header-content
-				.header-column
+		.header-top
+			.container
+				.header-content
 					a(href="index.html").logo
 						img(src="img/main/logo.png", alt="logo")
 					.header-nav
-						.header-nav__row.mb-30
+						.header-nav__row
 							.search-panel
 								.input-wraper
 									input(type="text" placeholder="Поиск...")
@@ -14,8 +14,8 @@ mixin header(menuItems, avatarSrc)
 										+search
 							+social-icons
 							.contact-phone
-								a(href="tel:+79055555555") +7 (905) 555-55-55
-								a(href="tel:+79055555555") +7 (905) 555-55-55
+								a(href="tel:+79055555555") +7 905 555-55-55
+								a(href="tel:+79055555555") +7 905 555-55-55
 						.header-nav__row
 							ul.header-menu
 								li.menu-logo
@@ -51,6 +51,59 @@ mixin header(menuItems, avatarSrc)
 										span.basket-value 2
 							.menu-toggle
 								span
+
+//- mixin header(menuItems, avatarSrc)
+//- 	header.header
+//- 		.container
+//- 			.header-content
+//- 				a(href="index.html").logo
+//- 					img(src="img/main/logo.png", alt="logo")
+//- 				.header-nav
+//- 					.header-nav__row.mb-30
+//- 						.search-panel
+//- 							.input-wraper
+//- 								input(type="text" placeholder="Поиск...")
+//- 								button.search-button
+//- 									+search
+//- 						+social-icons
+//- 						.contact-phone
+//- 							a(href="tel:+79055555555") +7 (905) 555-55-55
+//- 							a(href="tel:+79055555555") +7 (905) 555-55-55
+//- 					.header-nav__row
+//- 						ul.header-menu
+//- 							li.menu-logo
+//- 								img(src="img/main/logo.png", alt="logo")
+//- 							each item in menuItems
+//- 								if item.addClass
+//- 									li(class=" "+ item.addClass)
+//- 										a(href=" "+ item.hrefLink) #{item.text}
+//- 								else
+//- 									li
+//- 										a(href=" "+ item.hrefLink) #{item.text}
+							
+//- 							.menu-social
+//- 								+social-icons
+//- 						.user-controls
+//- 							if avatarSrc
+//- 								.user-avatar
+//- 									span
+//- 									a(href="#" style="background-image: url(img/main/"+  avatarSrc +".jpg), url(img/main/noavatar.jpg) ")
+										
+//- 							else
+//- 								.user-log-in
+//- 									a(href="user-profile.html")
+//- 										+log-in
+						
+//- 							.user-favor
+//- 								a(href="#!")
+//- 									+favor
+//- 									span.basket-value 2
+//- 							.user-basket
+//- 								a(href="page-basket.html")
+//- 									+cart-icon
+//- 									span.basket-value 2
+//- 						.menu-toggle
+//- 							span
 		//выпадающее меню категорий
 		//- .cat-panel
 		//- 	.container

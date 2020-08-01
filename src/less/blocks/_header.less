@@ -253,33 +253,17 @@
 /*****ШАПКА****/
 .header {
 	position: relative;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
+
 	padding-top: 30px;
 	background-color: #fff;
-	height: 140px;
-	max-height: 140px;
-	z-index: 5;
 	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 1199px) {
-	.header {
-		height: 100px;
-	}
+.header-content {
+	display: flex;
 }
 
-@media (max-width: 767px) {
-	.header {
-		height: auto;
-		padding-bottom: 10px;
-		padding-top: 0;
-		height: 70px;
-	}
-}
 
 @-webkit-keyframes showFade {
 	0% {
@@ -305,109 +289,18 @@
 	}
 }
 
-.header-content {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	// height: 140px;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	-ms-flex-direction: row;
-	flex-direction: row;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-}
 
-@media (max-width: 1199px) {
-	.header-content {
-		height: 100px;
-	}
-}
 
-@media (max-width: 767px) {
-	.header-content {
-		height: 70px;
-	}
-}
-
-@media (max-width: 767px) {
-	.header-content {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: column;
-		flex-direction: column;
-	}
-}
-
-.header-column {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	height: 92.5px;
-	width: 100%;
-}
-
-@media (max-width: 1199px) {
-	.header-column {
-		height: auto;
-	}
-}
-
-@media (max-width: 767px) {
-	.header-column {
-		-webkit-box-pack: justify;
-		-ms-flex-pack: justify;
-		justify-content: space-between;
-		width: 100%;
-		margin-top: 5px;
-	}
-}
-
-.header-nav {
-	width: 100%;
-}
 
 .logo {
 
-	width: 230px;
+	width: 200px;
 	position: relative;
-	top: -6px;
-	left: -3px;
+
 }
 
-@media (max-width: 1199px) {
-	.logo {
-		width: 180px;
 
-		top: 0px;
-		left: 0px;
-	}
-}
 
-@media (max-width: 991px) {
-	.logo {
-		width: 120px;
-
-	}
-}
-
-@media (max-width: 767px) {
-	.logo {
-		width: 100px;
-
-	}
-}
-
-@media (max-width: 359px) {
-	.logo {}
-}
 
 .header-nav__row {
 	display: -webkit-box;
@@ -417,13 +310,13 @@
 	-ms-flex-align: center;
 	align-items: center;
 
+	.social-icons {
+		margin-right: 35px;
+		margin-left: 18%;
+	}
 
 }
 
-.header-nav__row.mb-30 {
-	margin-bottom: 15px;
-	padding-bottom: 10px;
-}
 
 @media (max-width: 1199px) {
 	.header-nav__row {
@@ -543,98 +436,12 @@
 
 
 
-.header-nav__row .social-icons {
-	position: relative;
-	margin-right: 3.5%;
-	top: 2px;
-}
-
 .header-nav__row .contact-phone {
 	position: relative;
 	display: flex;
 
 	a+a {
-		margin-left: 20px;
-	}
-}
-
-@media (max-width: 1199px) {
-	.header-column--left {
-		-webkit-box-orient: horizontal;
-		-webkit-box-direction: normal;
-		-ms-flex-direction: row;
-		flex-direction: row;
-	}
-
-	.header-nav__row .social-icons,
-	.header-column--left .contact-phone {
-		position: relative;
-		top: 0px;
-	}
-
-	.header-column--left .contact-phone {
-		margin-bottom: 0px;
-	}
-}
-
-@media (max-width: 991px) {
-	.header-column--left {
-		margin-left: 0;
-	}
-}
-
-@media (max-width: 767px) {
-	.header-column--left {
-		width: 540px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 0;
-	}
-}
-
-@media (max-width: 575px) {
-	.header-column--left {
-		width: 100%;
-	}
-}
-
-@media (max-width: 767px) {
-	.fix-wrapper {
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		padding-left: 15px;
-		padding-right: 15px;
-		height: 65px;
-		z-index: 5;
-		margin-top: 0;
-		padding-top: 15px;
-		border-bottom: 1px solid #a3a7b4;
-		background-color: #fff;
-		-webkit-box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.3);
-		box-shadow: 0 -2px 2px rgba(0, 0, 0, 0.3);
-	}
-}
-
-@media (max-width: 1199px) {
-	.contact-phone {
-		margin-right: 40px;
-		margin-bottom: 0;
-		padding-top: 0;
-
-	}
-}
-
-@media (max-width: 767px) {
-	.contact-phone {
-		margin-right: 25px;
-	}
-}
-
-@media (max-width: 359px) {
-	.contact-phone {
-		margin-right: 15px;
+		margin-left: 16px;
 	}
 }
 
@@ -697,22 +504,4 @@
 
 .user-controls a:hover svg path {
 	fill: #fbd10e;
-}
-
-/* .user-basket a svg path{
-	height: 24px;
-	width: 32px;
-  } */
-
-.user-log-in {}
-
-.user-log-in svg {
-	width: 25px;
-	height: 25px;
-}
-
-@media (max-width: 991px) {
-	.user-log-in {
-		margin-right: 20px;
-	}
 }
