@@ -46,7 +46,8 @@
 	justify-content: space-between;
 
 	.product-counter--num {
-		width: 48px;
+		width: 30px;
+		border-radius: 50%;
 		height: 30px;
 		font-size: 16px;
 		line-height: 30px;
@@ -146,7 +147,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		align-items: center;
+		// align-items: center;
 
 		@media(max-width:1199px) {
 			margin-bottom: 20px;
@@ -189,6 +190,14 @@
 	@media(max-width:767px) {
 		margin-left: 30px;
 	}
+}
+
+.basket-item__old-price {
+	font-size: 25px;
+	color: @red;
+	line-height: 35px;
+	margin-left: 15px;
+	text-decoration: line-through;
 }
 
 .basket-item__calc {
@@ -291,13 +300,18 @@
 	}
 
 	.basket-clean {
-		// background-color: transparent;
+		height: 40px;
+		line-height: 39px;
+
+		svg path {
+			fill: @green;
+		}
 
 		&:hover {
 
 
 			svg path {
-				fill: @red;
+				fill: #fff;
 			}
 		}
 

@@ -7,11 +7,16 @@ $(document).ready(function () {
 		} else {
 			document.querySelector('header').classList.remove('header--fixed');
 		}
-	})
+	});
+
+	// MENU
 	const menuToggle = document.querySelector('.menu-toggle');
 	const mobMenu = document.querySelector('.header-menu');
 	const overlayBlock = document.querySelector('#overlay');
 	const backTopButton = document.querySelector('#back-top');
+	const mobMenuItem = mobMenu.querySelectorAll('li');
+	const menuCatLink = document.querySelector('#catPanelItem');
+	const catPanel = document.querySelector('#catPanel');
 
 	const bodyEl = document.body;
 	if (menuToggle) {
@@ -19,6 +24,10 @@ $(document).ready(function () {
 			if (this.classList.contains('active')) {
 				this.classList.remove('active');
 				mobMenu.classList.remove('active');
+				for (let item of mobMenuItem) {
+					item.classList.remove('animate')
+				}
+
 				overlayBlock.classList.remove('active');
 				bodyEl.classList.remove('noscroll');
 
@@ -27,6 +36,13 @@ $(document).ready(function () {
 				mobMenu.classList.add('active');
 				overlayBlock.classList.add('active');
 				bodyEl.classList.add('noscroll');
+				let delay = 0;
+				for (let item of mobMenuItem) {
+					setTimeout(function () {
+						item.classList.add('animate');
+					}, 100 + delay)
+					delay += 100;
+				}
 
 			}
 		});
@@ -35,6 +51,9 @@ $(document).ready(function () {
 			overlayBlock.classList.remove('active');
 			bodyEl.classList.remove('noscroll');
 			mobMenu.classList.remove('active');
+			if (catPanel) {
+				catPanel.classList.remove('active');
+			}
 
 		});
 		mobMenu.addEventListener('click', function () {
@@ -44,6 +63,25 @@ $(document).ready(function () {
 			bodyEl.classList.remove('noscroll');
 
 		})
+	}
+	//  Показать панель категорий
+
+
+	if (window.innerWidth > 1199) {
+		for (let item of mobMenuItem) {
+			if (item == menuCatLink) {
+				item.addEventListener('mouseenter', function () {
+					catPanel.classList.add('active');
+				});
+			} else {
+				item.addEventListener('mouseenter', function () {
+					catPanel.classList.remove('active');
+				});
+			}
+		}
+		// menuCatLink.addEventListener('mouseenter', function () {
+		// 	catPanel.classList.add('active');
+		// });
 	}
 
 	//main-slider
@@ -197,11 +235,22 @@ $(document).ready(function () {
 
 	$(function () {
 		$(window).scroll(function () {
+			if ($(this).scrollTop() > 140) {
+				$('.header-top').addClass('fixed');
+			} else {
+
+				$('.header-top').removeClass('fixed');
+			}
 			if ($(this).scrollTop() > 200) {
 				$('#back-top').fadeIn();
+
+
 			} else {
 				$('#back-top').fadeOut();
+				$('.header-top').removeClass('fixed');
 			}
+
+
 		});
 
 	});

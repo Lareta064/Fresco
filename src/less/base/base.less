@@ -146,17 +146,17 @@ button {
 	}
 }
 
-.hidden-layout {
-	min-height: 140px;
+// .hidden-layout {
+// 	min-height: 140px;
 
-	@media(max-width:1199px) {
-		min-height: 100px;
-	}
+// 	@media(max-width:1199px) {
+// 		min-height: 100px;
+// 	}
 
-	@media(max-width: 767px) {
-		min-height: 70px;
-	}
-}
+// 	@media(max-width: 767px) {
+// 		min-height: 70px;
+// 	}
+// }
 
 .content-wrapper {
 	// display: flex;
@@ -274,6 +274,24 @@ button {
 
 .mb-19 {
 	margin-bottom: 20px;
+}
+
+.marker-list li {
+	position: relative;
+	padding-left: 30px;
+
+	&+li {
+		margin-top: 25px;
+	}
+}
+
+.marker-list li:before {
+	content: '\2714';
+	position: absolute;
+	left: 0;
+	right: 0;
+	font-size: 18px;
+	color: @green;
 }
 
 /*кнопка вверх*/
