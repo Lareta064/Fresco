@@ -149,7 +149,7 @@ mixin saleCard(imgName, periodDate, title, text)
 				.sale-card__text
 					h3.title-3 !{title}
 					p !{text}
-mixin basketItem(imgSrc)
+mixin basketItem(imgSrc, text1, text2, oldPrice)
 	.basket-item
 		button.remove-item.remove-basket-item
 			+times(30, 30)
@@ -163,32 +163,16 @@ mixin basketItem(imgSrc)
 			.col-8.col-md-3.col-lg-3
 				.basket-item__head
 					a(href="product-card.html").title-34 
-						span Пицца
-						span “Особая”
-					.basket-item__property
-						.product-card__filters
-							span.filter-name Тесто:
-							.filters-type
-								.filters-type__item
-									label
-										input(type="radio" name="product_testo" value="Традиционное" checked)
-										.fake-radiobutton Традиционное
-						.product-card__filters
-							span.filter-name Pазмер:
-							.filters-type
-								.filters-type__item
-									label
-										input(type="radio" name="product_diameter" value="33" checked)
-										.fake-radiobutton 33 см
-			.col-md-6.col-lg-4.border-col
+						span #{text1}
+						span #{text2}
+			.col-md-6.col-lg-3.border-col
 				.basket-item__descrip.text-16
 					.basic-descrip
-						p Говядина, халапеньо, моцарелла, помидоры, куриное филе, томатный соус.
+						p Урожай 2020 года
 					.addition-set
-						button.remove-item.remove-addition
-							+times(16, 16)
-						p Дополнительно: Сыр моцарелла 50&nbsp;гр. Пепперони 30&nbsp;гр. Ветчина 30&nbsp;гр. Маслины&nbsp;20гр. Оливковое масло 20&nbsp;гр.
-			.col-lg-3
+						p Шелковица – небольшие мясистые плоды, которые имеют форму костянок 2-3 см. Ягоды сочные, сладкие и имеют приятный аромат. 
+						
+			.col-lg-4
 				.basket-item__calc
 					//- button.remove-item.remove-basket-item
 					//- 	+times(30, 30)
@@ -198,6 +182,8 @@ mixin basketItem(imgSrc)
 						.basket-item__cost
 							.basket-item__cost-val.title-34 650
 							.basket-item__cost-dim руб
+							if oldPrice
+								.basket-item__old-price 500 руб
 
 mixin main-product-card(title, imgSrc, weight, desk, price, oldPrice)
 	.product-card&attributes(attributes)
@@ -370,6 +356,6 @@ mixin cart-icon
 
 
 mixin log-in
-	svg(width="30" height="30" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
+	svg(width="25" height="25" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg")
 		path(d="M17.6562 0H2.34375C1.05141 0 0 1.05141 0 2.34375V4.6875C0 5.11897 0.349778 5.46875 0.78125 5.46875C1.21272 5.46875 1.5625 5.11897 1.5625 4.6875V2.34375C1.5625 1.91297 1.91297 1.5625 2.34375 1.5625H17.6562C18.087 1.5625 18.4375 1.91297 18.4375 2.34375V17.6562C18.4375 18.087 18.087 18.4375 17.6562 18.4375H2.34375C1.91297 18.4375 1.5625 18.087 1.5625 17.6562V15.3125C1.5625 14.881 1.21272 14.5312 0.78125 14.5312C0.349778 14.5312 0 14.881 0 15.3125V17.6562C0 18.9486 1.05141 20 2.34375 20H17.6562C18.9486 20 20 18.9486 20 17.6562V2.34375C20 1.05141 18.9486 0 17.6562 0Z" fill="black")
 		path(d="M9.92742 5.69756C9.62233 5.39247 9.12767 5.39247 8.82258 5.69756C8.51748 6.00266 8.51748 6.49731 8.82258 6.80241L11.2389 9.21873H0.781251C0.349779 9.21873 0 9.56851 0 9.99998C0 10.4315 0.349778 10.7812 0.78125 10.7812H11.2389L8.82258 13.1976C8.51748 13.5027 8.51748 13.9973 8.82258 14.3024C9.12767 14.6075 9.62233 14.6075 9.92742 14.3024L14.2298 9.99998L9.92742 5.69756Z" fill="black")
