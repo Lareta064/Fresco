@@ -114,7 +114,7 @@
 
 	.product-counter--num {
 		margin-right: 0;
-		width: 48px;
+		width: 30px;
 	}
 
 	.total-amount {
@@ -136,5 +136,37 @@
 		width: 170px;
 		padding-left: 10px;
 		padding-right: 10px;
+	}
+}
+
+.product-page .total-amount {
+	span.title-16--bold {
+		@media(max-width:424px) {
+			display: none;
+		}
+	}
+}
+
+// FOTORAMA
+.fotorama.fotorama--product .fotorama__thumb-border {
+	border: 2px solid @green;
+	border-radius: 5px;
+
+}
+
+.products-optional__List {
+	.form-group {
+		margin-bottom: 8px;
+
+		span {
+			position: relative;
+			top: -2px
+		}
+	}
+}
+
+.other-products {
+	.title-4 {
+		text-transform: uppercase;
 	}
 }
