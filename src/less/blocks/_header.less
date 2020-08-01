@@ -28,6 +28,7 @@
 		transition: .5s;
 		padding-top: 30px;
 		padding-left: 20px;
+		padding-right: 20px;
 		width: 0;
 		height: 0;
 		opacity: 0;
@@ -47,13 +48,13 @@
 @media (max-width: 1199px) {
 	.header-menu .menu-logo {
 		display: block;
-		margin-bottom: 50px;
+		margin-bottom: 30px;
 	}
 }
 
 @media (max-width: 767px) {
 	.header-menu .menu-logo {
-		width: 130px;
+		width: 145px;
 	}
 }
 
@@ -150,6 +151,21 @@
 }
 
 @media (max-width: 1199px) {
+	.header-menu {
+		overflow: hidden;
+	}
+
+	.header-menu li:not(:first-child) {
+		color: #fff;
+		transform: translateX(500px);
+	}
+
+	.header-menu li.animate {
+		transition: transform cubic-bezier(.68, -0.55, .26, 1) 1s;
+		//transition: transform cubic-bezier(0.68, -0.55, 0.265, 1.55) 1s;
+		transform: translateX(0px);
+	}
+
 	.header-menu li:hover:after {
 		width: 0;
 	}
@@ -262,14 +278,36 @@
 /*****ШАПКА****/
 .header {
 	position: relative;
-	padding-top: 40px;
+	// padding-top: 40px;
 	background-color: #fff;
 	-webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 
 	@media(max-width:1199px) {
+		// padding-top: 15px;
+	}
+}
+
+.header-top {
+	background-color: #fff;
+	padding-top: 40px;
+
+	@media(max-width:1199px) {
 		padding-top: 15px;
 	}
+}
+
+.header-top.fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	-webkit-animation-name: showSlow;
+	animation-name: showSlow;
+	-webkit-animation-duration: .35s;
+	animation-duration: .35s;
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .header-content {
@@ -374,6 +412,38 @@
 
 }
 
+.header-menu .header-menu__contacts {
+	display: none;
+	flex-direction: column;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 20px;
+
+	.contact-phone a {
+		color: #fff;
+		font-size: 18px;
+
+		&:hover {
+			color: @green;
+		}
+	}
+
+	@media(max-width:1199px) {
+		display: flex;
+	}
+}
+
+.header-menu__contacts .social-icons {
+	display: none;
+
+	@media(max-width:1199px) {
+		display: flex;
+		margin-top: 10px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
 .header-nav__row:first-child {
 	margin-bottom: 21px;
 
@@ -381,10 +451,6 @@
 		margin-bottom: 15px;
 	}
 }
-
-// .header-nav__row+.header-nav__row {
-// 	margin-top: 30px;
-// }
 
 @media (max-width: 1199px) {
 	.header-nav__row {
@@ -520,12 +586,6 @@
 	top: 2px;
 }
 
-@media(max-width:1199px) {
-	// .user-basket {
-	// 	top: 0;
-	// }
-}
-
 .favor-value,
 .basket-value {
 	position: absolute;
@@ -560,6 +620,14 @@
 
 	@media(max-width:767px) {
 		display: none;
+	}
+}
+
+.header-nav__row .header-menu__contacts .contact-phone {
+	display: none;
+
+	@media(max-width:767px) {
+		display: flex;
 	}
 }
 

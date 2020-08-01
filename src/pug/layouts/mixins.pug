@@ -24,7 +24,7 @@ mixin header(menuItems, avatarSrc)
 									img(src="img/main/logo.png", alt="logo")
 								each item in menuItems
 									if item.addClass
-										li(class=" "+ item.addClass)
+										li(class=" "+ item.addClass  )
 											a(href=" "+ item.hrefLink) #{item.text}
 									else if item.text == 'Каталог'
 										li(id="catPanelItem")
@@ -33,6 +33,11 @@ mixin header(menuItems, avatarSrc)
 									else
 										li
 											a(href=" "+ item.hrefLink) #{item.text}
+								.header-menu__contacts
+									.contact-phone
+										a(href="tel:+79055555555") +7 905 555-55-55
+										a(href="tel:+79055555555") +7 905 555-55-55
+									+social-icons
 								
 								.menu-social
 									+social-icons
@@ -70,79 +75,6 @@ mixin header(menuItems, avatarSrc)
 						a(href="#") Зелень
 						a(href="#") Ягоды
 						a(href="#") Товары по акции
-
-//- mixin header(menuItems, avatarSrc)
-//- 	header.header
-//- 		.container
-//- 			.header-content
-//- 				a(href="index.html").logo
-//- 					img(src="img/main/logo.png", alt="logo")
-//- 				.header-nav
-//- 					.header-nav__row.mb-30
-//- 						.search-panel
-//- 							.input-wraper
-//- 								input(type="text" placeholder="Поиск...")
-//- 								button.search-button
-//- 									+search
-//- 						+social-icons
-//- 						.contact-phone
-//- 							a(href="tel:+79055555555") +7 (905) 555-55-55
-//- 							a(href="tel:+79055555555") +7 (905) 555-55-55
-//- 					.header-nav__row
-//- 						ul.header-menu
-//- 							li.menu-logo
-//- 								img(src="img/main/logo.png", alt="logo")
-//- 							each item in menuItems
-//- 								if item.addClass
-//- 									li(class=" "+ item.addClass)
-//- 										a(href=" "+ item.hrefLink) #{item.text}
-//- 								else
-//- 									li
-//- 										a(href=" "+ item.hrefLink) #{item.text}
-							
-//- 							.menu-social
-//- 								+social-icons
-//- 						.user-controls
-//- 							if avatarSrc
-//- 								.user-avatar
-//- 									span
-//- 									a(href="#" style="background-image: url(img/main/"+  avatarSrc +".jpg), url(img/main/noavatar.jpg) ")
-										
-//- 							else
-//- 								.user-log-in
-//- 									a(href="user-profile.html")
-//- 										+log-in
-						
-//- 							.user-favor
-//- 								a(href="#!")
-//- 									+favor
-//- 									span.basket-value 2
-//- 							.user-basket
-//- 								a(href="page-basket.html")
-//- 									+cart-icon
-//- 									span.basket-value 2
-//- 						.menu-toggle
-//- 							span
-		//выпадающее меню категорий
-		//- .cat-panel
-		//- 	.container
-		//- 		.category-menu
-		//- 			nav
-		//- 				a(href="#") Овощи
-		//- 				a(href="#") Фрукты
-		//- 				a(href="#") Экзотические фрукты
-		//- 				a(href="#") Мясо, рыба, птица
-		//- 				a(href="#") Вода, напитки, соки
-		//- 				a(href="#") Орехи и сухофрукты
-		//- 				a(href="#") Зелень
-		//- 				a(href="#") Ягоды
-		//- 				a(href="#") Товары по акции
-				//- .fix-wrapper
-				//- 	.header-column.header-column--left
-						//- .contact-phone
-						//- 	a(href="tel:+79055555555") +7 (905) 555-55-55
-						//- 	a(href="tel:+79055555555") +7 (905) 555-55-55
-						
 
 mixin search
 	span
