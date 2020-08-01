@@ -276,6 +276,24 @@ button {
 	margin-bottom: 20px;
 }
 
+.marker-list li {
+	position: relative;
+	padding-left: 30px;
+
+	&+li {
+		margin-top: 25px;
+	}
+}
+
+.marker-list li:before {
+	content: '\2714';
+	position: absolute;
+	left: 0;
+	right: 0;
+	font-size: 18px;
+	color: @green;
+}
+
 /*кнопка вверх*/
 #back-top {
 	position: fixed;

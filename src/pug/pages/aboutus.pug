@@ -1,12 +1,11 @@
 extends ../layouts/layout.pug
 
-block content
+block content	
 	
-	//- include ../sections/_header.pug
-	+header([{hrefLink: 'index.html', text: 'Главная'}, {hrefLink: 'catalog.html', text: 'Каталог'}, {hrefLink: 'delivery-page.html', text: 'Доставка и оплата'}, {hrefLink: 'page-sales.html', text: 'Новости и акции'}, {hrefLink: 'aboutus.html', text: 'О нас', addClass:'active'}, {hrefLink: 'contacts.html', text: 'Контакты'}])
+	+header([{hrefLink: 'index.html', text: 'Главная'}, {hrefLink: 'catalog.html', text: 'Каталог'}, {hrefLink: 'aboutus.html', text: 'О компании', addClass:'active'}, {hrefLink: 'delivery-page.html', text: 'Доставка и оплата' },  {hrefLink: 'contacts.html', text: 'Контакты'}, {hrefLink: '#', text: 'Обмен и возврат'}])
 	.content-wrapper
-		include ../sections/_aboutus-page.pug	
+		include ../sections/_aboutus-page.pug
 		include ../sections/_footer.pug
 	
 block variables
-	-var title = "О нас";
+	-var title = "О компании";

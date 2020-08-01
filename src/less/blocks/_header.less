@@ -474,25 +474,9 @@
 	-ms-flex-align: center;
 	align-items: center;
 	position: relative;
-	position: absolute;
-	right: 65px;
 	top: 2px;
 }
 
-@media (max-width: 1199px) {
-	.user-avatar {
-		position: relative;
-		right: 20px;
-		top: 0;
-	}
-}
-
-@media (max-width: 767px) {
-	.user-avatar {
-		left: -20px;
-		right: auto;
-	}
-}
 
 .user-avatar span {
 	position: absolute;
@@ -538,6 +522,7 @@
 .user-controls .user-favor {
 	position: relative;
 	margin-left: 30px;
+
 
 	a {
 		height: auto;
@@ -626,7 +611,7 @@
 .header-nav__row .header-menu__contacts .contact-phone {
 	display: none;
 
-	@media(max-width:767px) {
+	@media(max-width:1199px) {
 		display: flex;
 	}
 }
@@ -664,6 +649,8 @@
 	margin-left: auto;
 	padding-bottom: 10px;
 	padding-right: 10px;
+	position: relative;
+	top: -2px;
 
 	@media(max-width:1199px) {
 		padding-bottom: 0;
