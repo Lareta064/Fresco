@@ -50,17 +50,13 @@ $(document).ready(function () {
 	//  Показать панель категорий
 	const menuCatLink = document.querySelector('#catPanelItem');
 	const catPanel = document.querySelector('#catPanel');
-	menuCatLink.addEventListener('mouseenter', function () {
-		catPanel.classList.add('active');
-	});
-	// catPanel.addEventListener('mouseenter', function () {
-	// 	this.classList.add('active');
-	// 	console.log('555');
-	// });
-	// catPanel.addEventListener('mouseover', function () {
-	// 	catPanel.classList.remove('active');
-	// 	console.log('333');
-	// });
+
+	if (window.innerWidth > 1199) {
+		menuCatLink.addEventListener('mouseenter', function () {
+			catPanel.classList.add('active');
+		});
+	}
+
 	//main-slider
 	$('.banner-slider').owlCarousel({
 		items: 1,
