@@ -34,22 +34,11 @@
 	}
 }
 
-@media (max-width: 1199px) and (max-width: 767px) {
-	.header-menu {
-		padding-top: 20px;
-	}
-}
 
 .header-menu .menu-social {
 	display: none;
 }
 
-@media (max-width: 1199px) {
-	.header-menu .menu-social {
-		display: block;
-		margin-top: 20px;
-	}
-}
 
 .header-menu .menu-logo {
 	display: none;
@@ -80,26 +69,28 @@
 .header-menu li {
 	display: block;
 	position: relative;
-	margin-right: 24px;
+
 	color: #1f1f1f;
 	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
 	white-space: nowrap;
+	margin-right: 24px;
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+
 }
 
 .header-menu li a {
 	color: inherit;
+	padding-bottom: 10px;
+	display: inline-block;
 }
 
-@media (max-width: 1199px) {
-	.header-menu li {
-		color: #fff;
-		padding-top: 2px;
-		padding-bottom: 2px;
-		margin-bottom: 20px;
-	}
-}
+
 
 .header-menu li.active {
 	color: @red;
@@ -264,6 +255,9 @@
 	display: flex;
 }
 
+.header-nav {
+	flex-grow: 1;
+}
 
 @-webkit-keyframes showFade {
 	0% {
@@ -299,9 +293,6 @@
 
 }
 
-
-
-
 .header-nav__row {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -309,14 +300,24 @@
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	position: relative;
+	top: -10px;
 
 	.social-icons {
-		margin-right: 35px;
-		margin-left: 18%;
+		margin-right: 45px;
+		margin-left: auto;
+		padding-top: 5px;
 	}
 
 }
 
+.header-nav__row:first-child {
+	margin-bottom: 25px;
+}
+
+// .header-nav__row+.header-nav__row {
+// 	margin-top: 30px;
+// }
 
 @media (max-width: 1199px) {
 	.header-nav__row {
@@ -403,12 +404,13 @@
 
 .user-favor {
 	position: relative;
-	margin-left: 35px;
+	margin-left: 30px;
 }
 
 .user-basket {
 	position: relative;
-	margin-left: 35px;
+	margin-left: 30px;
+	top: 3px;
 }
 
 
@@ -439,9 +441,10 @@
 .header-nav__row .contact-phone {
 	position: relative;
 	display: flex;
+	padding-top: 3px;
 
 	a+a {
-		margin-left: 16px;
+		margin-left: 20px;
 	}
 }
 
@@ -454,7 +457,7 @@
 	-webkit-transition: .3s;
 	-o-transition: .3s;
 	transition: .3s;
-	width: 142px;
+
 	display: inline-block;
 }
 
@@ -471,6 +474,8 @@
 .user-controls {
 	display: flex;
 	margin-left: auto;
+	padding-bottom: 10px;
+	padding-right: 10px;
 
 }
 
@@ -483,8 +488,7 @@
 
 .user-controls a {
 	display: block;
-	height: 25px;
-	width: 25px;
+
 }
 
 .user-controls a svg {

@@ -7,7 +7,9 @@ $(document).ready(function () {
 		} else {
 			document.querySelector('header').classList.remove('header--fixed');
 		}
-	})
+	});
+
+	// MENU
 	const menuToggle = document.querySelector('.menu-toggle');
 	const mobMenu = document.querySelector('.header-menu');
 	const overlayBlock = document.querySelector('#overlay');
@@ -45,7 +47,20 @@ $(document).ready(function () {
 
 		})
 	}
-
+	//  Показать панель категорий
+	const menuCatLink = document.querySelector('#catPanelItem');
+	const catPanel = document.querySelector('#catPanel');
+	menuCatLink.addEventListener('mouseenter', function () {
+		catPanel.classList.add('active');
+	});
+	// catPanel.addEventListener('mouseenter', function () {
+	// 	this.classList.add('active');
+	// 	console.log('555');
+	// });
+	// catPanel.addEventListener('mouseover', function () {
+	// 	catPanel.classList.remove('active');
+	// 	console.log('333');
+	// });
 	//main-slider
 	$('.banner-slider').owlCarousel({
 		items: 1,

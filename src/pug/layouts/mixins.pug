@@ -24,6 +24,10 @@ mixin header(menuItems, avatarSrc)
 									if item.addClass
 										li(class=" "+ item.addClass)
 											a(href=" "+ item.hrefLink) #{item.text}
+									else if item.text == 'Каталог'
+										li(id="catPanelItem")
+											a(href=" "+ item.hrefLink) #{item.text}
+											
 									else
 										li
 											a(href=" "+ item.hrefLink) #{item.text}
@@ -51,6 +55,19 @@ mixin header(menuItems, avatarSrc)
 										span.basket-value 2
 							.menu-toggle
 								span
+		.cat-panel#catPanel
+			.container
+				.category-menu
+					nav
+						a(href="#") Овощи
+						a(href="#") Фрукты
+						a(href="#") Экзотические фрукты
+						a(href="#") Мясо, рыба, птица
+						a(href="#") Вода, напитки, соки
+						a(href="#") Орехи и сухофрукты
+						a(href="#") Зелень
+						a(href="#") Ягоды
+						a(href="#") Товары по акции
 
 //- mixin header(menuItems, avatarSrc)
 //- 	header.header
